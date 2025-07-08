@@ -24,8 +24,8 @@
     </label>
   <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
   </p>
-  <button type="submit">가입하기 </button>
-  <a th:href="@{/login}" class="cancel">로그인</a>
+  <button type="submit"> 회원가입 </button>
+  <a th:href="@{/login}" class="cancel"> 취소</a>
 
 </form>
 <!--signupDto 객체로 받고 메소드는 포스트 요청-->
