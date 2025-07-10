@@ -1,4 +1,4 @@
-package com.ssh.to_do_list_with_dto.model;
+package com.ssh.to_do_list_with_dto.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

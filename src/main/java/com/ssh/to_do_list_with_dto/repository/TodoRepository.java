@@ -38,4 +38,26 @@ public class TodoRepository {
 
         return jdbcTemplate.update(sql, todo.getUserId(), todo.getTitle(), todo.isCompleted());
     }
+
+    public int deleteByIdAndUserId(int id, int userId) {
+//        userId 가 속해있는 이유는 내꺼인지 확인하기위해
+        String sql = "DELETE FROM todo WHERE id = ? AND user_id = ?";
+
+        return jdbcTemplate.update(sql, id, userId);
+    }
+
+    public Todo findByIdAndUserId(int id, int userId) {
+        String sql = "SELECT * FROM todo WHERE id = ? AND user_id = ?";
+        return jdbcTemplate.queryForObject(sql, todoRowMapper, id , userId);
+    }
+
+    public int update(Todo todo) {
+        String sql = "UPDATE todo SET title = ?, completed = ? WHERE id = ? AND user_id =?";
+
+        return jdbcTemplate.update(sql, todo.getTitle(), todo.isCompleted(), todo.getId(), todo.getUserId());
+    }
+
+
+
+
 }
